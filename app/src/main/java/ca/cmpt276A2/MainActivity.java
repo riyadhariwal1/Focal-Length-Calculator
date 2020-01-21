@@ -11,6 +11,9 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+
+import static android.app.PendingIntent.getActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        populateListView();
+
+    }
+
+    private void populateListView() {
+        LensM lenses = LensM.getInstance();
+        //ArrayAdapter<LensM> adapter = new ArrayAdapter<LensM>(getActivity(), R.layout.list_view, lenses);
+
     }
 
     @Override
