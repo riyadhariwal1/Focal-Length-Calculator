@@ -5,7 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 
 public class LensManager implements Iterable<Lens>{
-    private List<Lens> lensList = new ArrayList<>();
+    private ArrayList<Lens> lensList = new ArrayList<>();
+
+    public ArrayList<Lens> getLensList() {
+        return lensList;
+    }
 
     private static LensManager INSTANCE = null;
 

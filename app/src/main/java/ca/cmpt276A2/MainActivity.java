@@ -1,21 +1,24 @@
 package ca.cmpt276A2;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
-import static android.app.PendingIntent.getActivity;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +40,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private void populateListView() {
-        LensM lenses = LensM.getInstance();
-        //ArrayAdapter<LensM> adapter = new ArrayAdapter<LensM>(getActivity(), R.layout.list_view, lenses);
+        LensManager lenses = LensManager.getInstance();
+        ArrayList<Lens> test = lenses.getLensList();
+        ArrayAdapter<Lens> adapter = new ArrayAdapter<>(this, R.layout.list_view, test);
+
+        ListView list = findViewById(R.id.listViewMain);
+        list.setAdapter(adapter);
 
     }
 
